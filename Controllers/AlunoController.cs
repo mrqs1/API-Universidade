@@ -17,12 +17,12 @@ namespace apiUniversidade.Controllers
             List<Aluno> alunos = new List<Aluno>();
 
             Aluno a1 = new Aluno();
-            a1.Nome = "Amanda";
+            a1.Nome = "Marques";
             a1.DataNascimento = DateTime.Now;
             a1.cpf = "123.456.789-52";
 
             Aluno a2 = new Aluno();
-            a2.Nome = "Camila";
+            a2.Nome = "Maciel";
             a2.DataNascimento = DateTime.Now;
             a2.cpf = "987.654.321-85";
 
