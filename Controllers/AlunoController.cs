@@ -11,6 +11,11 @@ namespace apiUniversidade.Controllers
     [Route("[controller]")]
     public class AlunoController : ControllerBase
     {
+        private readonly ILogger<AlunoController> _logger;
+        public AlunoController(ILogger<AlunoController> logger)
+        {
+            _logger = logger;
+        }
         [HttpGet(Name = "alunos")]
         public List<Aluno> GetAluno()
         {

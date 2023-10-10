@@ -11,6 +11,11 @@ namespace apiUniversidade.Controllers
     [Route("[controller]")]
     public class DisciplinaController  : ControllerBase
     {
+        private readonly ILogger<DisciplinaController> _logger;
+        public DisciplinaController(ILogger<DisciplinaController> logger)
+        {
+            _logger = logger;
+        }
 
         [HttpGet(Name = "disciplinas")]
         public List<Disciplina> GetDisciplina()

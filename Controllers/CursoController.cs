@@ -11,11 +11,17 @@ namespace apiUniversidade.Controllers
     [Route("[controller]")]
     public class CursoController : ControllerBase
     {
+        private readonly ILogger<CursoController> _logger;
+        public CursoController(ILogger<CursoController> logger)
+        {
+            _logger = logger;
+        }
+
         [HttpGet]
-        public ActionResult<IEnumerable<Curso>> Get();
+        public ActionResult<IEnumerable<Curso>> Get()
         {  
             var cursos = context.Cursos.ToList();
-            if(Cursos is null){
+            if(cursos is null){
                 return NotFound();
             }
             
