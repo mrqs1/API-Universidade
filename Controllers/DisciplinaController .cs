@@ -21,14 +21,6 @@ namespace apiUniversidade.Controllers
         public List<Disciplina> GetDisciplina()
         {
             List<Disciplina> disciplinas = new List<Disciplina>();
-            //Disciplina d = new Disciplina
-            
-            /*disciplinas.add(new Disciplina){
-                Nome = "Programação para Internet", 
-                CargaHoraria = 60, 
-                Semestre = 4, 
-            };
-            return disciplinas; */
 
             Disciplina d1 = new Disciplina();
             d1.Nome = "Programação para Internet";
