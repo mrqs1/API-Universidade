@@ -28,9 +28,9 @@ namespace apiUniversidade.Controllers
             if(cursos is null){
                 return NotFound();
             }
-            
             return cursos;
         }
+
         [HttpPost]
         public ActionResult Post(Curso curso){
             _context.Cursos.Add(curso);
@@ -50,8 +50,9 @@ namespace apiUniversidade.Controllers
 
         [HttpPut("(id:int)")]
         public ActionResult Put(int id, Curso curso){
-            if(id != curso.Id)
-            return BadRequest();
+            if(id != curso.Id){
+                return BadRequest();
+            }
 
             _context.Entry(curso).State = EntityState.Modified;
             _context.SaveChanges();
@@ -59,7 +60,7 @@ namespace apiUniversidade.Controllers
             return Ok(curso);
         }
 
-        [HttpDelete("{id int}")]
+        [HttpDelete("(id:int)")]
         public ActionResult Delete(int id){
             var curso = _context.Cursos.FirstOrDefault(p => p.Id == id);
 
@@ -69,7 +70,6 @@ namespace apiUniversidade.Controllers
 
             _context.Cursos.Remove(curso);
             _context.SaveChanges();
-
             return Ok(curso);
         }
 
