@@ -46,14 +46,15 @@ public class AutorizaController : Controller
         }
 
         await _signInManager.SignInAsync(user, false);
-        return Ok();
+        return Ok(GeraToken(model));
     }
 
     [HttpPost("login")]
     public async Task<ActionResult> Login ([FromBody]UsuarioDTO userInfo){
+
         var result = await _signInManager.PasswordSignInAsync(userInfo.Email, userInfo.Password, isPersistent: false, lockoutOnFailure: false);
         if(result.Succeeded){
-            return Ok();
+            return Ok(GeraToken(userInfo));
         }else{
             ModelState.AddModelError(string.Empty,"login inválido...");
             return BadRequest(ModelState);
@@ -95,6 +96,4 @@ public class AutorizaController : Controller
             Message = "JWT Ok."
         };
     }
-
-    
 }
