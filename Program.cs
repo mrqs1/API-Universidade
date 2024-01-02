@@ -54,3 +54,10 @@ options.TokenValidationParameters = new TokenValidationParameters{
     IssuerSigningKey = new SymmetricSecurityKey(
         Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
 });
+
+builder.Services.AddApiVersioning(options => 
+{
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1,0);
+    options.ReportApiVersions = true;
+});
