@@ -16,9 +16,9 @@ namespace apiUniversidade.Controllers
     [Route("api/{v:apiversion}/curso")]
     public class CursoControllerv2 : ControllerBase
     {
-        private readonly ILogger<CursoController> _logger;
+        private readonly ILogger<CursoControllerv2> _logger;
         private readonly ApiUniversidadeContext _context;
-        public CursoControllerv2(ILogger<CursoController> logger, ApiUniversidadeContext context)
+        public CursoControllerv2(ILogger<CursoControllerv2> logger, ApiUniversidadeContext context)
         {
             _logger = logger;
             _context = context;
@@ -39,10 +39,10 @@ namespace apiUniversidade.Controllers
             _context.Cursos.Add(curso);
             _context.SaveChanges();
 
-            return new CreatedAtRouteResult("GetCurso", new{id = curso.Id}, curso);
+            return new CreatedAtRouteResult("GetCursov2", new{id = curso.Id}, curso);
         }
 
-        [HttpGet("(id:int)", Name="GetCurso")]
+        [HttpGet("(id:int)", Name="GetCursov2")]
         public ActionResult<Curso> Get(int id){
             var curso = _context.Cursos.FirstOrDefault(p => p.Id == id);
             if(curso is null){
